@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap');
+body{margin:0;background:oklch(97% 0.01 80);font-family:'Work Sans',sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:oklch(55% 0.09 45);text-decoration:none;}
+a:hover{color:oklch(45% 0.09 45);}
+*{box-sizing:border-box;}
+input,select{font-family:'Work Sans',sans-serif;}
+</style>
+</helmet>
+<div style="width:100%;background:oklch(97% 0.01 80);color:oklch(20% 0.01 80);overflow-x:hidden;min-height:100vh;">
+
+  <header style="display:flex;align-items:center;justify-content:space-between;padding:28px 64px;border-bottom:1px solid oklch(88% 0.01 80);position:sticky;top:0;background:oklch(97% 0.01 80);z-index:10;">
+    <a href="1.Home.dc.html" style="display:flex;align-items:center;"><img src="./design-sem-nome-12--mrk04jw2-xozt.png" alt="Philipe Fonseca" width="511" height="203" style="max-width: 100%; display: block; object-fit: scale-down; aspect-ratio: 511 / 203; height: 61px; width: 198px"></a>
+    <nav style="display:flex;align-items:center;gap:44px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(20% 0.01 80);">
+      <a href="1.Home.dc.html" style="color:oklch(20% 0.01 80);">Home</a>
+      <a href="2.Coleções.dc.html" style="color:oklch(20% 0.01 80);">Coleções</a>
+      <a href="4.Sobre.dc.html" style="color:oklch(20% 0.01 80);">Sobre</a>
+      <a href="19.Mídias.dc.html" style="color:oklch(20% 0.01 80);">Mídias</a>
+      <a href="20.Contato.dc.html" style="color:oklch(20% 0.01 80);">Contato</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:22px;">
+      <a href="3.Loja.dc.html" aria-label="Pesquisar" style="color:oklch(20% 0.01 80);display:flex;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"></circle><line x1="12.5" y1="12.5" x2="17" y2="17" stroke="currentColor" stroke-width="1.5"></line></svg></a>
+      <a href="3.Loja.dc.html" style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:12px 22px;border:1px solid oklch(20% 0.01 80);color:oklch(20% 0.01 80);">Loja</a>
+    </div>
+  </header>
+
+  <sc-if value="{{ placed }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:140px 64px;max-width:640px;margin:0 auto;text-align:center;">
+      <div style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(55% 0.09 45);margin-bottom:18px;">Pedido confirmado</div>
+      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;margin:0 0 20px;">Obrigado pelo seu pedido</h1>
+      <p style="font-size:15px;line-height:1.7;color:oklch(35% 0.015 80);margin:0 0 8px;">Pedido nº {{ orderNumber }}</p>
+      <p style="font-size:15px;line-height:1.7;color:oklch(35% 0.015 80);margin:0 0 40px;">Em breve, alguém do nosso estúdio entrará em contato para acompanhar a produção e o envio da sua peça.</p>
+      <a href="1.Home.dc.html" style="display:inline-block;padding:18px 34px;background:oklch(20% 0.01 80);color:oklch(97% 0.01 80);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;">Voltar à home</a>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+    <section style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:80px;padding:80px 64px 140px;max-width:1200px;margin:0 auto;align-items:start;">
+      <div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 28px;">Dados de entrega</h2>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <input value="{{ name }}" onChange="{{ setName }}" type="text" placeholder="Nome completo" style="padding:15px;border:1px solid oklch(85% 0.01 80);background:transparent;font-size:14px;color:oklch(20% 0.01 80);outline:none;"/>
+          <input value="{{ email }}" onChange="{{ setEmail }}" type="email" placeholder="E-mail" style="padding:15px;border:1px solid oklch(85% 0.01 80);background:transparent;font-size:14px;color:oklch(20% 0.01 80);outline:none;"/>
+          <input value="{{ phone }}" onChange="{{ setPhone }}" type="tel" placeholder="Telefone / WhatsApp" style="padding:15px;border:1px solid oklch(85% 0.01 80);background:transparent;font-size:14px;color:oklch(20% 0.01 80);outline:none;"/>
+          <input value="{{ address }}" onChange="{{ setAddress }}" type="text" placeholder="Endereço e número" style="padding:15px;border:1px solid oklch(85% 0.01 80);background:transparent;font-size:14px;color:oklch(20% 0.01 80);outline:none;"/>
+          <div style="display:flex;gap:16px;">
+            <input value="{{ city }}" onChange="{{ setCity }}" type="text" placeholder="Cidade" style="flex:1;padding:15px;border:1px solid oklch(85% 0.01 80);background:transparent;font-size:14px;color:oklch(20% 0.01 80);outline:none;"/>
+            <input value="{{ zip }}" onChange="{{ setZip }}" type="text" placeholder="CEP" style="width:140px;padding:15px;border:1px solid oklch(85% 0.01 80);background:transparent;font-size:14px;color:oklch(20% 0.01 80);outline:none;"/>
+          </div>
+        </div>
+
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:40px 0 20px;">Forma de pagamento</h2>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <label style="display:flex;align-items:center;gap:12px;padding:16px;border:1px solid {{ pixBorder }};font-size:14px;cursor:pointer;"><input type="radio" name="pay" checked="{{ isPix }}" onChange="{{ setPix }}"/> Pix</label>
+          <label style="display:flex;align-items:center;gap:12px;padding:16px;border:1px solid {{ cardBorder }};font-size:14px;cursor:pointer;"><input type="radio" name="pay" checked="{{ isCard }}" onChange="{{ setCard }}"/> Cartão de crédito</label>
+          <label style="display:flex;align-items:center;gap:12px;padding:16px;border:1px solid {{ transferBorder }};font-size:14px;cursor:pointer;"><input type="radio" name="pay" checked="{{ isTransfer }}" onChange="{{ setTransfer }}"/> Transferência bancária</label>
+        </div>
+
+        <button onClick="{{ placeOrder }}" disabled="{{ isEmpty }}" style="margin-top:40px;width:100%;padding:18px;background:oklch(20% 0.01 80);color:oklch(97% 0.01 80);border:none;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Confirmar pedido</button>
+        <p style="font-size:12px;color:oklch(50% 0.015 80);margin:16px 0 0;">Peças produzidas sob encomenda. Prazos de produção e envio informados após a confirmação do pedido.</p>
+      </div>
+
+      <div style="background:oklch(94% 0.01 78);padding:36px;">
+        <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:18px;margin:0 0 24px;">Resumo do pedido</h3>
+        <sc-for list="{{ cart }}" as="item" hint-placeholder-count="2">
+          <div style="display:flex;justify-content:space-between;font-size:14px;padding:12px 0;border-top:1px solid oklch(87% 0.01 78);">
+            <span>{{ item.name }} × {{ item.qty }}</span>
+            <span>{{ item.lineTotal }}</span>
+          </div>
+        </sc-for>
+        <div style="display:flex;justify-content:space-between;font-size:17px;font-family:'Newsreader',serif;padding:20px 0 0;margin-top:8px;border-top:1px solid oklch(87% 0.01 78);"><span>Total</span><span>{{ subtotalFmt }}</span></div>
+      </div>
+    </section>
+  </sc-if>
+
+  <footer style="padding: 72px 64px 40px; border-top: 1px solid oklch(88% 0.01 80); background-color: #F9F5EE">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:48px;">
+      <img src="./design-sem-nome-9--mrk3yfv6-wnrl.png" alt="Philipe Fonseca" style="height: 42px; width: 104px">
+      <nav style="display:flex;gap:36px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;">
+        <a href="1.Home.dc.html" style="color:oklch(20% 0.01 80);">Home</a>
+        <a href="2.Coleções.dc.html" style="color:oklch(20% 0.01 80);">Coleções</a>
+        <a href="4.Sobre.dc.html" style="color:oklch(20% 0.01 80);">Sobre</a>
+        <a href="20.Contato.dc.html" style="color:oklch(20% 0.01 80);">Contato</a>
+        <a href="Termos e Condições.dc.html" style="color:oklch(20% 0.01 80);">Termos e Condições</a>
+        <a href="22.Política de Privacidade.dc.html" style="color:oklch(20% 0.01 80);">Política de Privacidade</a>
+        <a href="5.Galeria de Ambientes.dc.html" style="color:oklch(20% 0.01 80);">Galeria de Ambientes</a>
+      </nav>
+      <div style="font-size:13px;line-height:2;color:oklch(35% 0.015 80);">
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M5 6.5c0 3 1.5 4.5 4.5 4.5l0.5-1.3-1.7-0.6-0.6 0.6c-0.8-0.4-1.4-1-1.8-1.8l0.6-0.6-0.6-1.7L5 6.5z" fill="currentColor"></path></svg> WhatsApp: (21) 96966-6233</div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"></rect><path d="M1.5 3.5L8 9L14.5 3.5" stroke="currentColor" stroke-width="1.3" fill="none"></path></svg> info@philipefonseca.com</div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.3"></rect><circle cx="8" cy="8" r="3.3" stroke="currentColor" stroke-width="1.3"></circle><circle cx="11.8" cy="4.2" r="0.9" fill="currentColor"></circle></svg> @philipefonseca_</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:oklch(50% 0.01 80);text-align:center;">PF - DI &amp; Serviços Ltda. - 44.922.692/0001-09</div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    cart: [], placed: false, orderNumber: '',
+    name: '', email: '', phone: '', address: '', city: '', zip: '',
+    payment: 'pix'
+  };
+
+  componentDidMount() {
+    this.setState({ cart: this.getCart() });
+  }
+
+  getCart() {
+    try { return JSON.parse(localStorage.getItem('pf_cart') || '[]'); } catch (e) { return []; }
+  }
+
+  fmt(n) {
+    return 'R$ ' + n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  placeOrder() {
+    if (this.state.cart.length === 0) return;
+    const orderNumber = 'PF-' + Math.floor(10000 + Math.random() * 90000);
+    localStorage.removeItem('pf_cart');
+    this.setState({ placed: true, orderNumber });
+  }
+
+  renderVals() {
+    const raw = this.state.cart;
+    const cart = raw.map(i => ({ ...i, lineTotal: this.fmt(i.price * i.qty) }));
+    const subtotal = raw.reduce((s, i) => s + i.price * i.qty, 0);
+    return {
+      cart, subtotalFmt: this.fmt(subtotal),
+      placed: this.state.placed, showForm: !this.state.placed,
+      orderNumber: this.state.orderNumber,
+      isEmpty: raw.length === 0,
+      name: this.state.name, email: this.state.email, phone: this.state.phone,
+      address: this.state.address, city: this.state.city, zip: this.state.zip,
+      setName: e => this.setState({ name: e.target.value }),
+      setEmail: e => this.setState({ email: e.target.value }),
+      setPhone: e => this.setState({ phone: e.target.value }),
+      setAddress: e => this.setState({ address: e.target.value }),
+      setCity: e => this.setState({ city: e.target.value }),
+      setZip: e => this.setState({ zip: e.target.value }),
+      isPix: this.state.payment === 'pix',
+      isCard: this.state.payment === 'card',
+      isTransfer: this.state.payment === 'transfer',
+      pixBorder: this.state.payment === 'pix' ? 'oklch(20% 0.01 80)' : 'oklch(88% 0.01 80)',
+      cardBorder: this.state.payment === 'card' ? 'oklch(20% 0.01 80)' : 'oklch(88% 0.01 80)',
+      transferBorder: this.state.payment === 'transfer' ? 'oklch(20% 0.01 80)' : 'oklch(88% 0.01 80)',
+      setPix: () => this.setState({ payment: 'pix' }),
+      setCard: () => this.setState({ payment: 'card' }),
+      setTransfer: () => this.setState({ payment: 'transfer' }),
+      placeOrder: () => this.placeOrder()
+    };
+  }
+}
+
+</script>
+</body>
+</html>

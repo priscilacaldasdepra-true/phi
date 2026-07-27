@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap');
+body{margin:0;background:oklch(97% 0.01 80);font-family:'Work Sans',sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:oklch(55% 0.09 45);text-decoration:none;}
+a:hover{color:oklch(45% 0.09 45);}
+*{box-sizing:border-box;}
+</style>
+</helmet>
+<div style="width: 100%; color: oklch(20% 0.01 80); overflow-x: hidden; background-color: #F9F5EE">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 28px 64px; border-bottom: 1px solid oklch(88% 0.01 80); position: sticky; top: 0; z-index: 10; background-color: #F9F5EE">
+    
+    <img src="./design-sem-nome-12--mrk04jw2-xozt.png" alt="design-sem-nome-12-" width="511" height="203" style="max-width: 100%; display: block; object-fit: scale-down; aspect-ratio: 511 / 203; height: 61px; width: 198px"><nav style="display: flex; align-items: center; gap: 44px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #00000000">
+      <a href="1.Home.dc.html" style="color:oklch(55% 0.09 45);">Home</a>
+      <a href="2.Coleções.dc.html" style="color:oklch(20% 0.01 80);">Coleções</a>
+      <a href="4.Sobre.dc.html" style="color:oklch(20% 0.01 80);">Sobre</a>
+      <a href="19.Mídias.dc.html" style="color:oklch(20% 0.01 80);">Mídias</a>
+      <a href="20.Contato.dc.html" style="color:oklch(20% 0.01 80);">Contato</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:22px;">
+      <a href="3.Loja.dc.html" aria-label="Pesquisar" style="color:oklch(20% 0.01 80);display:flex;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"></circle><line x1="12.5" y1="12.5" x2="17" y2="17" stroke="currentColor" stroke-width="1.5"></line></svg></a>
+      <a href="3.Loja.dc.html" style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:12px 22px;border:1px solid oklch(20% 0.01 80);color:oklch(20% 0.01 80);">Loja</a>
+    </div>
+  </header>
+
+  <section style="position: relative; height: 88vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden;">
+    <sc-for list="{{ heroSlides }}" as="slide" hint-placeholder-count="4">
+      <div style="{{ slide.style }}"></div>
+    </sc-for>
+    <div style="position:relative;padding:64px;max-width:760px;background:linear-gradient(0deg, oklch(97% 0.01 80 / 0.94), oklch(97% 0.01 80 / 0));width:100%;z-index:2;">
+      <div style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #F9F5EE; margin-bottom: 18px">Estúdio Philipe Fonseca</div>
+      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:52px;line-height:1.15;margin:0 0 20px;max-width:680px;">Design autoral brasileiro, em forma de mobiliário</h1>
+      <p style="font-size:17px;line-height:1.6;color:oklch(32% 0.015 80);max-width:520px;margin:0 0 32px;">Peças escultóricas que unem arte, ofício e identidade cultural para transformar ambientes em experiências.</p>
+      <a href="2.Coleções.dc.html" style="display:inline-block;padding:18px 34px;background:oklch(20% 0.01 80);color:oklch(97% 0.01 80);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;">Ver coleções</a>
+    </div>
+    <button onClick="{{ prevSlide }}" aria-label="Anterior" style="position:absolute;top:50%;left:24px;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:oklch(97% 0.01 80 / 0.85);border:none;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 3L6 9L11 15" stroke="oklch(20% 0.01 80)" stroke-width="1.8" fill="none"></path></svg></button>
+    <button onClick="{{ nextSlide }}" aria-label="Próxima" style="position:absolute;top:50%;right:24px;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:oklch(97% 0.01 80 / 0.85);border:none;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 3L12 9L7 15" stroke="oklch(20% 0.01 80)" stroke-width="1.8" fill="none"></path></svg></button>
+    <div style="position:absolute;bottom:24px;right:64px;display:flex;gap:10px;z-index:3;">
+      <sc-for list="{{ heroDots }}" as="dot" hint-placeholder-count="4">
+        <button onClick="{{ dot.select }}" aria-label="{{ dot.label }}" style="{{ dot.style }}"></button>
+      </sc-for>
+    </div>
+  </section>
+
+  
+
+  <section style="padding: 120px 64px; max-width: 1280px; margin: 0 auto; background-color: #F9F5EE">
+    <div style="text-align:center;margin-bottom:64px;">
+      <div style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(55% 0.09 45);margin-bottom:16px;">Assinaturas do estúdio</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;margin:0;">Três peças que traduzem quem somos</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(135deg, oklch(90% 0.015 75), oklch(90% 0.015 75) 18px, oklch(86% 0.02 75) 18px, oklch(86% 0.02 75) 36px);display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:11px;color:oklch(45% 0.02 75);text-align:center;padding:20px;">[ foto: Poltrona Gorila ]</div>
+        <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:22px;margin:22px 0 8px;">Poltrona Gorila</h3>
+        <p style="font-size:14px;line-height:1.6;color:oklch(40% 0.015 80);margin:0;">Presença escultórica e conforto em uma só peça.</p>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(135deg, oklch(90% 0.015 75), oklch(90% 0.015 75) 18px, oklch(86% 0.02 75) 18px, oklch(86% 0.02 75) 36px);display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:11px;color:oklch(45% 0.02 75);text-align:center;padding:20px;">[ foto: Banco Fío ]</div>
+        <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:22px;margin:22px 0 8px;">Banco Fío</h3>
+        <p style="font-size:14px;line-height:1.6;color:oklch(40% 0.015 80);margin:0;">Linhas que equilibram simplicidade e caráter.</p>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(135deg, oklch(90% 0.015 75), oklch(90% 0.015 75) 18px, oklch(86% 0.02 75) 18px, oklch(86% 0.02 75) 36px);display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:11px;color:oklch(45% 0.02 75);text-align:center;padding:20px;">[ foto: Cadeira Black ]</div>
+        <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:22px;margin:22px 0 8px;">Cadeira Black</h3>
+        <p style="font-size:14px;line-height:1.6;color:oklch(40% 0.015 80);margin:0;">Estrutura marcante para ambientes de personalidade.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:56px;">
+      <a href="2.Coleções.dc.html" style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid oklch(20% 0.01 80);color:oklch(20% 0.01 80);padding-bottom:4px;">Conhecer as coleções</a>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;">
+    <div style="min-height: 520px; display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 12px; color: oklch(45% 0.02 75); text-align: center; padding: 24px; background: url(&quot;./3ef832c6-1c5d-4a1e-aeb3-9be7730d7b7c-mrk6neub-fdwf.jpg&quot;) center / cover no-repeat">]</div>
+    <div style="padding: 80px; display: flex; flex-direction: column; justify-content: center; background-color: #F9F5EE">
+      <div style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(55% 0.09 45);margin-bottom:16px;">O estúdio</div>
+      <h2 style="font-family: 'Newsreader',serif; font-weight: 500; font-size: 34px; margin: 0 0 20px; line-height: 1.25; color: #000000">Arte e design com raiz brasileira</h2>
+      <p style="font-size:16px;line-height:1.7;color:oklch(32% 0.015 80);margin:0 0 32px;max-width:440px;">Cada peça do Philipe Fonseca Studio é pensada para durar, tanto na forma quanto no significado. Um trabalho que une identidade cultural, materiais selecionados e acabamento artesanal de alto padrão.</p>
+      <a href="4.Sobre.dc.html" style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid oklch(20% 0.01 80);align-self:flex-start;padding-bottom:4px;">Conhecer nossa história</a>
+    </div>
+  </section>
+
+  <section style="color: oklch(95% 0.01 80); padding: 110px 64px; text-align: center; background-color: #F9F5EE">
+    <div style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(70% 0.07 45);margin-bottom:18px;">Atendimento especializado</div>
+    <h2 style="font-family: 'Newsreader',serif; font-weight: 500; font-size: 34px; margin: 0 0 20px; max-width: 640px; margin-left: auto; margin-right: auto; color: #000000">Um estúdio parceiro de arquitetos e decoradores<br></h2>
+    <p style="font-size: 16px; line-height: 1.7; color: #D4AF9C; max-width: 560px; margin: 0 auto 36px">Oferecemos atendimento dedicado para especificação de peças em projetos residenciais, comerciais e hoteleiros.</p>
+    <a href="20.Contato.dc.html" style="display:inline-block;padding:18px 34px;background:oklch(95% 0.01 80);color:oklch(20% 0.01 80);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;">Falar com o estúdio</a>
+  </section>
+
+  <footer style="padding: 72px 64px 40px; border-top: 1px solid oklch(88% 0.01 80); background-color: #F9F5EE">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:48px;">
+      <img src="./design-sem-nome-9--mrk3yfv6-wnrl.png" alt="Philipe Fonseca" style="height: 42px; width: 104px">
+      <nav style="display:flex;gap:36px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;">
+        <a href="1.Home.dc.html" style="color:oklch(20% 0.01 80);">Home</a>
+        <a href="2.Coleções.dc.html" style="color:oklch(20% 0.01 80);">Coleções</a>
+        <a href="4.Sobre.dc.html" style="color:oklch(20% 0.01 80);">Sobre</a>
+        <a href="20.Contato.dc.html" style="color:oklch(20% 0.01 80);">Contato</a>
+        <a href="Termos e Condições.dc.html" style="color:oklch(20% 0.01 80);">Termos e Condições</a>
+        <a href="22.Política de Privacidade.dc.html" style="color:oklch(20% 0.01 80);">Política de Privacidade</a>
+        <a href="5.Galeria de Ambientes.dc.html" style="color:oklch(20% 0.01 80);">Galeria de Ambientes</a>
+      </nav>
+      <div style="font-size:13px;line-height:2;color:oklch(35% 0.015 80);">
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"></circle><path d="M5 6.5c0 3 1.5 4.5 4.5 4.5l0.5-1.3-1.7-0.6-0.6 0.6c-0.8-0.4-1.4-1-1.8-1.8l0.6-0.6-0.6-1.7L5 6.5z" fill="currentColor"></path></svg> WhatsApp: (21) 96966-6233</div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"></rect><path d="M1.5 3.5L8 9L14.5 3.5" stroke="currentColor" stroke-width="1.3" fill="none"></path></svg> info@philipefonseca.com</div>
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.3"></rect><circle cx="8" cy="8" r="3.3" stroke="currentColor" stroke-width="1.3"></circle><circle cx="11.8" cy="4.2" r="0.9" fill="currentColor"></circle></svg> @philipefonseca_</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:oklch(50% 0.01 80);text-align:center;">PF - DI &amp; Serviços Ltda. - 44.922.692/0001-09</div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  static IMAGES = [
+    '36-mrk29h36-999t.jpg',
+    'uploads/DSC_0544.JPG',
+    'uploads/instasave.website_624043793_18115315138549025_8179382173234077647_n.jpg',
+    'uploads/instasave.website_158403929_443749026680667_1266861144868983622_n.jpg',
+    'uploads/277928322_375552790954370_6112773126354399402_n.jpg'
+  ];
+  state = { slide: 0 };
+  componentDidMount() {
+    this.timer = setInterval(() => this.next(), 5000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+  next() { this.setState(s => ({ slide: (s.slide + 1) % Component.IMAGES.length })); }
+  prev() { this.setState(s => ({ slide: (s.slide - 1 + Component.IMAGES.length) % Component.IMAGES.length })); }
+  renderVals() {
+    const current = this.state.slide;
+    return {
+      heroSlides: Component.IMAGES.map((img, i) => ({
+        style: `position:absolute;inset:0;background:url('./${img}') center/cover no-repeat;opacity:${i === current ? 1 : 0};transition:opacity 0.6s ease;`
+      })),
+      heroDots: Component.IMAGES.map((img, i) => ({
+        label: 'Slide ' + (i + 1),
+        select: () => this.setState({ slide: i }),
+        style: `width:9px;height:9px;border-radius:50%;border:none;cursor:pointer;padding:0;background:${i === current ? 'oklch(97% 0.01 80)' : 'oklch(97% 0.01 80 / 0.4)'};`
+      })),
+      nextSlide: () => this.next(),
+      prevSlide: () => this.prev()
+    };
+  }
+}
+</script>
+</body>
+</html>
